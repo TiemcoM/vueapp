@@ -1,32 +1,39 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <v-img alt="Tiemco Meernik" class="shrink mr-2" contain src="https://tiemcomeernik.nl/favicon/android-icon-192x192.png" transition="scale-transition" width="40"/>
+        <v-btn to="/home" class="mr-2 primary">
+          Home
+        </v-btn>
+        <v-btn to="/about" class="mr-2 primary">
+          About
+        </v-btn>
+
+        <v-spacer></v-spacer>
+
+        <v-btn to="/login" class="mr-2 primary">
+            Login
+        </v-btn>
+        <v-btn to="/registreren" class="mr-2 primary">
+            Registreren
+        </v-btn>
+      </div>
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
+export default {
+  name: 'App',
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
