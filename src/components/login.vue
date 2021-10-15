@@ -61,20 +61,17 @@ export default {
     this.info_login = ret;
   },
   mounted() {
-    //console.log("");
     if (this.info_login == "leeg") {
       console.log("cookie info_login from component login.vue is leeg");
     } else {
-      //console.log("cookie info_login from component Inlog.vue is  = ", this.info_login);
       this.$store.state.info_login = this.info_login;
-      //console.log("state.info_login from mounted() = ", this.$store.state.info_login);
     }
   },
   methods: {
     handleLogin: function () {
       console.log("this.email=", this.email);
       console.log("this.password=", this.password);
-      let self = this;
+      // let self = this;
       // let deState = this.$store.state;
 
       let url = "http://localhost:8000/api/auth/login";
@@ -86,34 +83,16 @@ export default {
       })
           .then((response) => {
             console.log("in inlog, response", response);
-            if(response.data.data[0]) {
-              console.log("inlog juist! email = ", response.data.data[0].email);
-              this.info_login = response.data.data[0];
-              self.$store.commit("save_login", response.data.data[0]);
-            } else {
-              console.log("inlog ONJUIST");
-            }
-
-            // console.log("state.info_login = ", deState.info_login);
-            if (response.data.data[0]) {
-              //deState.snackbar_text = deState.info_login.naam + " is succevol ingelogd";
-              // deState.snackbar_text = response.data.data[0].inaam +" is succevol ingelogd";
-              // deState.snackbar = true;
-            } else {
-              // deState.snackbar_text = this.inaam +" is NIET ingelogd";
-              // deState.snackbar = true;
-            }
+            localStorage.setItem('access_token', response.data.user.access_token)
           })
           .catch(function (error) {
             console.log(error);
           });
-      //this.$refs.form.validate();
       this.clearLogin();
       this.dialogInlog = false;
     },
 
     clearLogin: function () {
-      //console.log("wis inputs");
       this.password = "";
       this.email = "";
     },

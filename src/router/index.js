@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import login from "@/components/login"
 import registreren from "@/components/registreren"
-import harderwijk from "@/components/harderwijk";
+import pizzas from "@/components/pizzas";
 
 Vue.use(VueRouter)
 
@@ -15,14 +15,13 @@ const routes = [
     component: Home,
   },
   {
-    path: '/harderwijk',
-    name: 'harderwijk',
-    component: harderwijk,
+    path: '/pizzas',
+    name: 'pizzas',
+    component: pizzas,
   },
   {
     path: '/about',
     name: 'About',
-    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     component: About,
   },
   {

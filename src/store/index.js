@@ -5,9 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    // standaard URLs
-    site_url: 'http://localhost:8000',
-
+    site_url: 'http://localhost:8080',
     // standaardinstellingen voor snackbar
     snackbar: false,
     snackbar_text: "My timeout is set to 6000.",
