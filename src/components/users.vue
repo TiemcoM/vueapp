@@ -15,7 +15,7 @@
         <td>{{ user.id }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.created_at }}</td>
+        <td>{{ user.created_at.slice(0,10) }}</td>
       </tr>
       </tbody>
     </table>
